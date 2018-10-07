@@ -71,13 +71,14 @@ router.delete('/recipes/:id',function(req,res){
             res.redirect('/recipes');
         }
     });
-
+ });
 
 function isLoggedin(req,res,next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect('/login');
+        if(req.isAuthenticated()){
+            return next();
+        }
+        res.redirect('/login');
 }
+    
 
 module.exports=router;
