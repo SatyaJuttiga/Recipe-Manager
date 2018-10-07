@@ -36,7 +36,7 @@ router.get('/recipes/:id',function(req,res){
         if(err){
             console.log(err);
         }else{
-            console.log(foundRecipe);
+            //console.log(foundRecipe);
             res.render('recipes/show',{recipe: foundRecipe});
         }
     });
@@ -51,6 +51,16 @@ router.get('/recipes/:id/edit',function(req,res){
             res.render('recipes/edit',{recipe:foundRecipe});
         }
     });        
+});
+
+router.put('/recipes/:id',function(req,res){
+    Recipe.findByIdAndUpdate(req.params.id,req.body.recipe,function(err,updatedRecipe){
+        if(err){
+            res.redirect('/recipes');
+        } else {
+            res.redirect('/recipes/' + req.params.id);
+        }
+    });
 });
 
 
