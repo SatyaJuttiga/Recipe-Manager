@@ -9,13 +9,18 @@ var expressSession=require('express-session');
 var passport=require('passport');
 var LocalStrategy=require('passport-local');
 var User=require('./models/user');
+var Recipe=require('./models/recipe');
 
 
 
 var indexRoutes=require('./routes/index');
+var recipeRoutes=require('./routes/recipes');
 
 
 mongoose.connect('mongodb://localhost/recipes');
+
+
+
 app.use(bodyparser.urlencoded({extended:true}));
 app.set('view engine','ejs');
 app.use(express.static(__dirname + '/public'));
@@ -36,10 +41,15 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(function(req,res,next){
+    res.locals.currentUser=req.User;
+    next();
+});
+
+
 
 app.use(indexRoutes);
-
-
+app.use(recipeRoutes);
 
 app.listen(3005,function(req,res){
     console.log('server started on 3005');
