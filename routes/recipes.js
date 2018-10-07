@@ -13,8 +13,30 @@ router.get('/recipes',function(req,res){
     });
 });
 
+router.post('/recipes',isLoggedin,function(req,res){
+    var name=req.body.name;
+    var image=req.body.image;
+    var desc=req.body.description;
+    var newRecipe={name:name,image:image,description:desc}
+    Recipe.create(newRecipe,function(err,newlyCreated){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect('/recipes');
+        }
+    });});
+
 router.get('/recipes/new',isLoggedin,function(req,res){
     res.render('recipes/new');
 });
+
+
+
+function isLoggedin(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/login');
+}
 
 module.exports=router;
