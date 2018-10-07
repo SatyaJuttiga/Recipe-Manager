@@ -63,6 +63,15 @@ router.put('/recipes/:id',function(req,res){
     });
 });
 
+router.delete('/recipes/:id',function(req,res){
+    Recipe.findByIdAndRemove(req.params.id,function(err){
+        if(err){
+            res.redirect('/recipes');
+        } else {
+            res.redirect('/recipes');
+        }
+    });
+
 
 function isLoggedin(req,res,next){
     if(req.isAuthenticated()){
