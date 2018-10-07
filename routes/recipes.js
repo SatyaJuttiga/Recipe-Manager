@@ -43,6 +43,17 @@ router.get('/recipes/:id',function(req,res){
 });
 
 
+router.get('/recipes/:id/edit',function(req,res){
+    Recipe.findById(req.params.id,function(err,foundRecipe){
+        if(err){
+            res.redirect('/recipes');
+        } else {
+            res.render('recipes/edit',{recipe:foundRecipe});
+        }
+    });        
+});
+
+
 function isLoggedin(req,res,next){
     if(req.isAuthenticated()){
         return next();
