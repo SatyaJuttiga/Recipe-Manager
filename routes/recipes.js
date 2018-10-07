@@ -37,7 +37,7 @@ router.get('/recipes/:id',function(req,res){
             console.log(err);
         }else{
             console.log(foundRecipe);
-            res.render('recipes/show',{foundRecipe: foundRecipe});
+            res.render('recipes/show',{recipe: foundRecipe});
         }
     });
 });
