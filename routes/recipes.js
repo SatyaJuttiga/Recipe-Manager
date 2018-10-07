@@ -31,6 +31,17 @@ router.get('/recipes/new',isLoggedin,function(req,res){
 });
 
 
+router.get('/recipes/:id',function(req,res){
+    Recipe.findById(req.params.id).populate('comments').exec(function(err,foundRecipe){
+        if(err){
+            console.log(err);
+        }else{
+            console.log(foundRecipe);
+            res.render('recipes/show',{foundRecipe: foundRecipe});
+        }
+    });
+});
+
 
 function isLoggedin(req,res,next){
     if(req.isAuthenticated()){
