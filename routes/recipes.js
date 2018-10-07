@@ -13,4 +13,8 @@ router.get('/recipes',function(req,res){
     });
 });
 
+router.get('/recipes/new',isLoggedin,function(req,res){
+    res.render('recipes/new');
+});
+
 module.exports=router;
