@@ -25,9 +25,6 @@ router.post('/register',function(req,res){
     });
   });
 
-router.get('/recipes',function(req,res){
-    res.send('recipessss');
-});
 
 router.get('/login',function(req,res){
     res.render('login');
