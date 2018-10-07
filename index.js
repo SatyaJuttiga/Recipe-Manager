@@ -17,7 +17,7 @@ var indexRoutes=require('./routes/index');
 var recipeRoutes=require('./routes/recipes');
 
 
-mongoose.connect('mongodb://localhost/recipes');
+mongoose.connect('mongodb://localhost/recipemanager');
 
 
 
