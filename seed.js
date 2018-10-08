@@ -33,8 +33,29 @@ function seedDB(){
             console.log(err);
         }
         console.log('removed Recipes!!');
-            
-           
+        data.forEach(function(seed){
+            Recipe.create(seed,function(err,recipe){
+              if(err){
+                  console.log(err)
+              }else{
+                  console.log('added a recipe');
+                  //create a comment
+                  Comment.create(
+                      {
+                      text:'Yummy...!!!!!!',
+                      author:'Bhanu'
+                  },function(err,comment){
+                      if(err){
+                          console.log(err);
+                      }else{
+                        recipe.comments.push(comment);
+                        recipe.save();
+                          console.log('created new comment');
+                      }
+                  });
+              }
+          });
+      });          
     });
 }
     
