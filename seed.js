@@ -10,19 +10,14 @@ var data=[
         description:'Pasta is among the most popular Italian pastas. This easy-to-make recipe can be quickly prepared at home using some simple ingredients',
     },
     {
-        name:'Grilled Chicken with Tomato-Avocado Salad',
-        image:'https://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/grilled-chicken-tomato-avocado-salad-crop-ck.jpg?itok=POurfhYN',
-        description:'Most people say that healthy food is not tasty but Chicken salad serves both the purposes. It is extremely tasty and healthy as well'
+        name:'Grilled Chicken',
+        image:'http://www.recipesaresimple.com/wp-content/uploads/2015/02/wester-chicken-chops-with-mushroom-sauce-recipe-300x300.jpg',
+        description:'Grilled Chicken is a very popular recipe made with chicken, hung curd and spices like cumin powder and black pepper'
     },
     {
-        name:'Hashanah Chicken',
-        image:'http://s345780157.onlinehome.us/wp-content/uploads/2011/03/Rosh-Hashanah-chicken-with-apples.jpg',
-        description:'A popular Asian starter, satay is a variation of the Indian kebab and is amazingly delicious and best enjoyed with a peanut sauce'
-    },
-    {
-        name:'Stir-fried Exotic Oriental Vegetables',
-        image:'https://recipes.timesofindia.com/photo/65532077.cms?imgsize=71616',
-        description:'Stir-fried Exotic Oriental Vegetables is an easy and healthy recipe for your day-to-day nutrition needs. Stir-fry can be your favourite pick when it comes to quick yet healthy dinners'
+        name:'Healthy Chicken Finger',
+        image:'https://healyeatsreal.com/wp-content/uploads/2017/03/Chicken-Finger-Recipe-Paleo-300x300-1.jpg',
+        description:'Chicken Fingers is an American snack recipe, which is perfect for mid meal munching and makes for a nice party dish'
     },       
 ]
 
