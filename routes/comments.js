@@ -40,6 +40,10 @@ router.post('/recipes/:id/comments',isLoggedin,function(req,res){
     });
 });
 
+router.get('/:comment_id/edit',function(req,res){
+    res.send('edit route for comment');
+});
+
 function isLoggedin(req,res,next){
     if(req.isAuthenticated()){
         return next();
