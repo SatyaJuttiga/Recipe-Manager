@@ -22,12 +22,12 @@ router.post('/recipes',isLoggedin,function(req,res){
         username:req.user.username
     }
     var newRecipe={name:name,image:image,description:desc,author:author}
-    console.log(req.user);
+    //console.log(req.user);
     Recipe.create(newRecipe,function(err,newlyCreated){
         if(err){
             console.log(err);
         }else{
-            console.log(newlyCreated);
+            //console.log(newlyCreated);
             res.redirect('/recipes');
         }
     });});
