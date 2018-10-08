@@ -55,7 +55,13 @@ router.get('/recipes/:id/edit',function(req,res){
             if(err){
                 res.redirect('/recipes');
             } else {
+                //console.log(foundRecipe.author.id);
+                //console.log(req.user._id);
+                if(foundRecipe.author.id.equals(req.user._id)){
                 res.render('recipes/edit',{recipe:foundRecipe});
+                }else{
+                    res.send('You do not have permission to do that');
+                }
             }
         });        
     }else{
