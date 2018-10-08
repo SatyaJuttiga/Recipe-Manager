@@ -49,14 +49,19 @@ router.get('/recipes/:id',function(req,res){
 });
 
 
-router.get('/recipes/:id/edit',isLoggedin,function(req,res){
-    Recipe.findById(req.params.id,function(err,foundRecipe){
-        if(err){
-            res.redirect('/recipes');
-        } else {
-            res.render('recipes/edit',{recipe:foundRecipe});
-        }
-    });        
+router.get('/recipes/:id/edit',function(req,res){
+    if(req.isAuthenticated()){
+        Recipe.findById(req.params.id,function(err,foundRecipe){
+            if(err){
+                res.redirect('/recipes');
+            } else {
+                res.render('recipes/edit',{recipe:foundRecipe});
+            }
+        });        
+    }else{
+        console.log('you have to be LOGGED IN  to do that!!!');
+        res.send('you need to be LOGGED IN  to do that!!!');
+    }   
 });
 
 router.put('/recipes/:id',function(req,res){
