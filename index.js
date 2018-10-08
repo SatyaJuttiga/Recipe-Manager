@@ -1,16 +1,16 @@
 var express=require('express');
-var bodyparser=require('body-parser');
-var app=express();
-
-var methodOverirde=require('method-override');
-var mongoose=require('mongoose');
-var expressSession=require('express-session');
+    bodyparser=require('body-parser'),
+    methodOverirde=require('method-override'),
+    mongoose=require('mongoose'),
+    expressSession=require('express-session'),
 //var flash=require('connect-flash');
-var passport=require('passport');
-var LocalStrategy=require('passport-local');
-var User=require('./models/user');
-var Recipe=require('./models/recipe');
-var Comment=require('./models/comment');
+    passport=require('passport'),
+    LocalStrategy=require('passport-local'),
+    User=require('./models/user'),
+    Recipe=require('./models/recipe'),
+    Comment=require('./models/comment'),
+    seedDB=require('./seed');
+var app=express();
 
 
 
@@ -22,12 +22,13 @@ var commentRoutes=require('./routes/comments');
 mongoose.connect('mongodb://localhost/recipemanager');
 
 
+app.set('view engine','ejs');
 
 app.use(bodyparser.urlencoded({extended:true}));
-app.set('view engine','ejs');
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
 app.use(methodOverirde('_method'));
 //app.use(flash());
+seedDB();
 
 
 

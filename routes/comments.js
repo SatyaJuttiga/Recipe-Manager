@@ -1,6 +1,6 @@
 var express=require('express');
 var router=express.Router();
-var Recipe=require('../models/recipes');
+var Recipe=require('../models/recipe');
 var Comment=require('../models/comment');
 
 /*
@@ -14,3 +14,4 @@ router.get('/recipes/:id/comments/new',isLoggedin,function(req,res){
     });
 });
 */
+module.exports=router;
