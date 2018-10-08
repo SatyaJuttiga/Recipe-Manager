@@ -50,27 +50,12 @@ router.get('/recipes/:id',function(req,res){
 
 
 router.get('/recipes/:id/edit',checkRecipeOwnership,function(req,res){
-    if(req.isAuthenticated()){
         Recipe.findById(req.params.id,function(err,editRecipe){
-            if(err){
-                res.redirect('/recipes');
-            } else {
-                //console.log(editRecipe.author.id);
-                //console.log(req.user._id);
-                if(editRecipe.author.id.equals(req.user._id)){
-                    res.render('recipes/edit',{recipe:editRecipe});
-                }else{
-                    res.send('You do not have permission to do that');
-                }
-            }
-        });        
-    }else{
-        console.log('you have to be LOGGED IN  to do that!!!');
-        res.send('you need to be LOGGED IN  to do that!!!');
-    }   
+            res.render('recipes/edit',{recipe:editRecipe});
+        });
 });
 
-router.put('/recipes/:id',function(req,res){
+router.put('/recipes/:id',checkRecipeOwnership,function(req,res){
     Recipe.findByIdAndUpdate(req.params.id,req.body.recipe,function(err,updatedRecipe){
         if(err){
             res.redirect('/recipes');
@@ -101,20 +86,19 @@ function checkRecipeOwnership(req,res,next){
     if(req.isAuthenticated()){
         Recipe.findById(req.params.id,function(err,editRecipe){
             if(err){
-                res.redirect('/recipes');
+                res.redirect('back');
             } else {
                 //console.log(editRecipe.author.id);
                 //console.log(req.user._id);
                 if(editRecipe.author.id.equals(req.user._id)){
-                    res.render('recipes/edit',{recipe:editRecipe});
+                    next();
                 }else{
-                    res.send('You do not have permission to do that');
+                    res.redirect('back');
                 }
             }
         });        
     }else{
-        console.log('you have to be LOGGED IN  to do that!!!');
-        res.send('you need to be LOGGED IN  to do that!!!');
+        res.redirect('back');
     }   
 }
 
