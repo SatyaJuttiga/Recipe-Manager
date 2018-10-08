@@ -49,7 +49,7 @@ router.get('/recipes/:id',function(req,res){
 });
 
 
-router.get('/recipes/:id/edit',function(req,res){
+router.get('/recipes/:id/edit',isLoggedin,function(req,res){
     Recipe.findById(req.params.id,function(err,foundRecipe){
         if(err){
             res.redirect('/recipes');
@@ -69,7 +69,7 @@ router.put('/recipes/:id',function(req,res){
     });
 });
 
-router.delete('/recipes/:id',function(req,res){
+router.delete('/recipes/:id',isLoggedin,function(req,res){
     Recipe.findByIdAndRemove(req.params.id,function(err){
         if(err){
             res.redirect('/recipes');
