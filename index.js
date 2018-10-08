@@ -26,7 +26,7 @@ mongoose.connect('mongodb://localhost/recipemanager');
 app.set('view engine','ejs');
 
 app.use(bodyparser.urlencoded({extended:true}));
-//app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 app.use(methodOverirde('_method'));
 //app.use(flash());
 
