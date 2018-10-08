@@ -12,6 +12,7 @@ var express=require('express');
     seedDB=require('./seed');
 var app=express();
 
+seedDB();
 
 
 var indexRoutes=require('./routes/index');
@@ -28,7 +29,6 @@ app.use(bodyparser.urlencoded({extended:true}));
 //app.use(express.static(__dirname + '/public'));
 app.use(methodOverirde('_method'));
 //app.use(flash());
-seedDB();
 
 
 

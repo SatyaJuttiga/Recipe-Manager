@@ -1,6 +1,6 @@
 var mongoose=require('mongoose');
 var Recipe=require('./models/recipe');
-var Comment=require('./models/comment');
+//var Comment=require('./models/comment');
 
 
 var data=[
@@ -23,44 +23,18 @@ var data=[
         name:'Stir-fried Exotic Oriental Vegetables',
         image:'https://recipes.timesofindia.com/photo/65532077.cms?imgsize=71616',
         description:'Stir-fried Exotic Oriental Vegetables is an easy and healthy recipe for your day-to-day nutrition needs. Stir-fry can be your favourite pick when it comes to quick yet healthy dinners'
-    },
-    
-
-        
+    },       
 ]
 
 
 function seedDB(){
-    //remove all campgrounds
     Recipe.remove({},function(err){
         if(err){
             console.log(err);
         }
         console.log('removed Recipes!!');
-            //add few campgrounds
-           data.forEach(function(seed){
-            Recipe.create(seed,function(err,recipe){
-                if(err){
-                    console.log(err)
-                }else{
-                    console.log('added a recipe');
-                    //create a comment
-                    Comment.create(
-                        {
-                        text:'Yummy..!!!!!',
-                        author:'Mera'
-                    },function(err,comment){
-                        if(err){
-                            console.log(err);
-                        }else{
-                            Recipe.comments.push(comment);
-                            Recipe.save();
-                            console.log('created new comment');
-                        }
-                    });
-                }
-            });
-        });
+            
+           
     });
 }
     
