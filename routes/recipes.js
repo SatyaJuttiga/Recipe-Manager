@@ -65,7 +65,7 @@ router.put('/recipes/:id',checkRecipeOwnership,function(req,res){
     });
 });
 
-router.delete('/recipes/:id',function(req,res){
+router.delete('/recipes/:id',checkRecipeOwnership,function(req,res){
     Recipe.findByIdAndRemove(req.params.id,function(err){
         if(err){
             res.redirect('/recipes');
