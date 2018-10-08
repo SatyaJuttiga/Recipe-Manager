@@ -19,7 +19,7 @@
                         <p>
                             <em>Submitted By <%= recipe.author.username %></em>
                         </p>
-                        <% if(editRecipe.author.id.equals(currentUser._id){ %>
+                        <% if(currentuser && editRecipe.author.id.equals(currentUser._id){ %>
                             <a class="btn btn-xs btn-warning" href="/recipes/<%= recipe._id %>/edit">Edit</a>
                         <form  id='delete-form' action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
                             <button class="btn btn-xs btn-danger">Delete</button>
