@@ -10,11 +10,13 @@ var passport=require('passport');
 var LocalStrategy=require('passport-local');
 var User=require('./models/user');
 var Recipe=require('./models/recipe');
+var Comment=require('./models/comment');
 
 
 
 var indexRoutes=require('./routes/index');
 var recipeRoutes=require('./routes/recipes');
+var commentRoutes=require('./routes/comments');
 
 
 mongoose.connect('mongodb://localhost/recipemanager');
@@ -50,6 +52,8 @@ app.use(function(req,res,next){
 
 app.use(indexRoutes);
 app.use(recipeRoutes);
+app.use(commentRoutes);
+
 
 app.listen(3005,function(req,res){
     console.log('server started on 3005');
