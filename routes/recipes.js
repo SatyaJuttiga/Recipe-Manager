@@ -49,16 +49,16 @@ router.get('/recipes/:id',function(req,res){
 });
 
 
-router.get('/recipes/:id/edit',function(req,res){
+router.get('/recipes/:id/edit',checkRecipeOwnership,function(req,res){
     if(req.isAuthenticated()){
-        Recipe.findById(req.params.id,function(err,foundRecipe){
+        Recipe.findById(req.params.id,function(err,editRecipe){
             if(err){
                 res.redirect('/recipes');
             } else {
-                //console.log(foundRecipe.author.id);
+                //console.log(editRecipe.author.id);
                 //console.log(req.user._id);
-                if(foundRecipe.author.id.equals(req.user._id)){
-                res.render('recipes/edit',{recipe:foundRecipe});
+                if(editRecipe.author.id.equals(req.user._id)){
+                    res.render('recipes/edit',{recipe:editRecipe});
                 }else{
                     res.send('You do not have permission to do that');
                 }
@@ -80,7 +80,7 @@ router.put('/recipes/:id',function(req,res){
     });
 });
 
-router.delete('/recipes/:id',isLoggedin,function(req,res){
+router.delete('/recipes/:id',function(req,res){
     Recipe.findByIdAndRemove(req.params.id,function(err){
         if(err){
             res.redirect('/recipes');
@@ -96,6 +96,26 @@ function isLoggedin(req,res,next){
         }
         res.redirect('/login');
 }
-    
+
+function checkRecipeOwnership(req,res,next){
+    if(req.isAuthenticated()){
+        Recipe.findById(req.params.id,function(err,editRecipe){
+            if(err){
+                res.redirect('/recipes');
+            } else {
+                //console.log(editRecipe.author.id);
+                //console.log(req.user._id);
+                if(editRecipe.author.id.equals(req.user._id)){
+                    res.render('recipes/edit',{recipe:editRecipe});
+                }else{
+                    res.send('You do not have permission to do that');
+                }
+            }
+        });        
+    }else{
+        console.log('you have to be LOGGED IN  to do that!!!');
+        res.send('you need to be LOGGED IN  to do that!!!');
+    }   
+}
 
 module.exports=router;
