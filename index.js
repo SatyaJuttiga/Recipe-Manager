@@ -14,6 +14,7 @@ var app=express();
 
 seedDB();
 
+const port = process.env.PORT || 8080;
 
 var indexRoutes=require('./routes/index');
 var recipeRoutes=require('./routes/recipes');
@@ -57,7 +58,7 @@ app.use(recipeRoutes);
 app.use(commentRoutes);
 
 
-app.listen(3005,function(req,res){
-    console.log('server started on 3005');
+app.listen(port,()=>{
+    console.log('server started on port' + port);
 });
 
