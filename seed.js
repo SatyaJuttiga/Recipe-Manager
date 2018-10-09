@@ -19,6 +19,21 @@ var data=[
         image:'https://healyeatsreal.com/wp-content/uploads/2017/03/Chicken-Finger-Recipe-Paleo-300x300-1.jpg',
         description:'Chicken Fingers is an American snack recipe, which is perfect for mid meal munching and makes for a nice party dish'
     },       
+    {
+        name:'Fried Rice',
+        image:'https://desieat.com/__recipes-images__/egg-fried-rice.jpg',
+        description:'Fried rice is a dish of cooked rice that has been stir-fried in a wok  and is usually mixed with other ingredients such as eggs, vegetables, seafood, or meat'
+    }, 
+    {
+        name:'Chicken Tikka Masala',
+        image:'https://40aprons.com/wp-content/uploads/2017/02/paleo-restaurant-style-chicken-tikka-masala-7-300x300.jpg',
+        description:'Chicken tikka prepared in tomato cream sauce.Pieces of chicken tikka cooked in a creamy sauce with fresh tomato and exotic spices'
+    },      
+    {
+        name:'Veg Cutlet',
+        image:'http://www.erumelynews.in/wp-content/uploads/2016/12/download.jpg',
+        description:'Vegetable cutlet is a crisp and absolutely delicious easy Indian  snack recipe of veggie mixes, paneer and spices'
+    },      
 ]
 
 
