@@ -39,21 +39,45 @@ body {
   }
 
   .slideshow li:nth-child(1) { 
-    background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+    background-image: url(http://basicallyspeaking.ca/wp-content/uploads/2017/05/Traditional-Pozole-Rojowith-Chicken-Recipe-300x300.png) 
   }
   .slideshow li:nth-child(2) { 
-    background-image: url(http://i.imgur.com/SBEmFpv.jpg);
-    animation-delay: 10s; 
+    background-image: url(http://wholehealthhacks.com/wp-content/uploads/30-healthy-thanksgiving-recipes-300x300.png);
+       animation-delay: 10s; 
   }
   .slideshow li:nth-child(3) { 
-    background-image: url(http://i.imgur.com/emvhOnb.jpg);
+    background-image: url(https://sweetcsdesigns.com/wp-content/uploads/2018/09/chinese-chicken-salad-recipe-picture-300x300.jpg);
     animation-delay: 20s; 
   }
   .slideshow li:nth-child(4) { 
-    background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+    background-image: url(https://www.meghantelpner.com/wp-content/uploads/2013/02/5902038714_60ec9478d1_z2.jpg);
     animation-delay: 30s; 
   }
   .slideshow li:nth-child(5) { 
-    background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+    background-image: url(https://s24261.pcdn.co/wp-content/uploads/2018/09/sausage-bean-soup-FEATURED-300x300.jpg);
     animation-delay: 40s; 
+  }
+  .slideshow li:nth-child(6) { 
+    background-image: url(https://www.meghantelpner.com/wp-content/uploads/2013/02/5902038714_60ec9478d1_z2.jpg);
+    animation-delay: 50s; 
+  }
+
+  @keyframes imageAnimation { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 1
+    }
+    30% {
+      opacity: 0
+    }
+    40% {
+        opacity: 1
+      }
   }
