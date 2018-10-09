@@ -3,7 +3,7 @@ var express=require('express');
     methodOverirde=require('method-override'),
     mongoose=require('mongoose'),
     expressSession=require('express-session'),
-//var flash=require('connect-flash');
+    flash=require('connect-flash'),
     passport=require('passport'),
     LocalStrategy=require('passport-local'),
     User=require('./models/user'),
@@ -28,7 +28,7 @@ app.set('view engine','ejs');
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverirde('_method'));
-//app.use(flash());
+app.use(flash());
 
 
 
