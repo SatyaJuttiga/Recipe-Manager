@@ -11,6 +11,7 @@ var express=require('express');
     Comment=require('./models/comment'),
     seedDB=require('./seed');
 var app=express();
+var config=require('./config/config');
 
 seedDB();
 
@@ -21,7 +22,7 @@ var recipeRoutes=require('./routes/recipes');
 var commentRoutes=require('./routes/comments');
 
 
-mongoose.connect('mongodb://localhost/recipemanager');
+//mongoose.connect('mongodb://localhost/recipemanager');
 
 
 app.set('view engine','ejs');
@@ -57,6 +58,9 @@ app.use(indexRoutes);
 app.use(recipeRoutes);
 app.use(commentRoutes);
 
+mongoose.connect(config.mongodb.dbURI,() => {
+    console.log('connected to mongo db');
+});
 
 app.listen(port,()=>{
     console.log('server started on port' + port);
